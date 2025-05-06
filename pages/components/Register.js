@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-//import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 
 const FormInput = ({ type, step, name, label, error, register, required, disabled }) => (
@@ -158,7 +157,7 @@ const FormCheckboxGroup = ({ name, label, options, register, setValue, getValues
 
 
 
-const Form1 = ({ onSubmit, buscando, setBuscando, tipologia, setTipologia, organizacion, setOrganizacion }) => {
+const Register = ({ onSubmit, buscando, setBuscando, tipologia, setTipologia, organizacion, setOrganizacion }) => {
   const {
     register,
     handleSubmit,
@@ -189,7 +188,9 @@ const Form1 = ({ onSubmit, buscando, setBuscando, tipologia, setTipologia, organ
           <FormInput type="text" name="Nombre" label="2. Nombre" error={errors.Nombre?.message} register={register} required />
           <FormInput type="text" name="Apellidos" label="3. Apellidos" error={errors.Apellidos?.message} register={register} required />
           <FormInput type="email" name="Correo" label="4. Correo" error={errors.Correo?.message} register={register} required />
-          <FormSelect name="Tipologia" label="5. Indique la tipología del agente del sector agroalimentario:" error={errors.tipologia?.message} register={register} options={tipologia} setValue={setValue} required />
+          <FormInput type="password" name="Contraseña" label="5. Contraseña" error={errors.Contraseña?.message} register={register} required />
+          <FormInput type="password" name="repetirContraseña" label="6. Repetir contraseña" error={errors.repetirContraseña?.message} register={register} required />
+          <FormSelect name="Tipologia" label="7. Indique la tipología del agente del sector agroalimentario:" error={errors.tipologia?.message} register={register} options={tipologia} setValue={setValue} required />
           {selectedTipologia !== "" &&(
             <>
             {
@@ -197,7 +198,7 @@ const Form1 = ({ onSubmit, buscando, setBuscando, tipologia, setTipologia, organ
             <>
               <FormCheckboxGroup
                 name="Organizacion"
-                label="6. ¿Qué tipo de organización/institución?"
+                label="8. ¿Qué tipo de organización/institución?"
                 options={organizacion}
                 register={register}
                 setValue={setValue}
@@ -205,17 +206,17 @@ const Form1 = ({ onSubmit, buscando, setBuscando, tipologia, setTipologia, organ
                 error={errors.Organizacion?.message}
                 required
               />
-              <FormInput type="text" name="razon" label="7. Razón Social (nombre legal de la empresa)" error={errors.razon?.message} register={register} required />
-              <FormInput type="text" name="identificacion" label="8. Número de Identificación Fiscal (NIF)" error={errors.identificacion?.message} register={register} required />
-              <FormInput type="text" name="pais" label="9. País del domicilio social" error={errors.pais?.message} register={register} required />
-              <FormInput type="url" name="url" label="10. URL" error={errors.url?.message} register={register} required />
+              <FormInput type="text" name="razon" label="9. Razón Social (nombre legal de la empresa)" error={errors.razon?.message} register={register} required />
+              <FormInput type="text" name="identificacion" label="10. Número de Identificación Fiscal (NIF)" error={errors.identificacion?.message} register={register} required />
+              <FormInput type="text" name="pais" label="11. País del domicilio social" error={errors.pais?.message} register={register} required />
+              <FormInput type="url" name="url" label="12. URL" error={errors.url?.message} register={register} required />
             </>
           ) :
             <>
-              <FormInput type="text" name="razon" label="6. Razón Social (nombre legal de la empresa)" error={errors.razon?.message} register={register} required />
-              <FormInput type="text" name="identificacion" label="7. Número de Identificación Fiscal (NIF)" error={errors.identificacion?.message} register={register} required />
-              <FormInput type="text" name="pais" label="8. País del domicilio social" error={errors.pais?.message} register={register} required />
-              <FormInput type="url" name="url" label="9. URL" error={errors.url?.message} register={register} required />
+              <FormInput type="text" name="razon" label="8. Razón Social (nombre legal de la empresa)" error={errors.razon?.message} register={register} required />
+              <FormInput type="text" name="identificacion" label="9. Número de Identificación Fiscal (NIF)" error={errors.identificacion?.message} register={register} required />
+              <FormInput type="text" name="pais" label="10. País del domicilio social" error={errors.pais?.message} register={register} required />
+              <FormInput type="url" name="url" label="11. URL" error={errors.url?.message} register={register} required />
 
             </>
 
@@ -236,4 +237,4 @@ const Form1 = ({ onSubmit, buscando, setBuscando, tipologia, setTipologia, organ
   );
 };
 
-export default Form1;
+export default Register;

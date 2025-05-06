@@ -8,7 +8,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { Fetcher } from '@/lib/fetcher';
 
 export default function Page() {
-  //const { data: session } = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
   const [rol, setRol] = useState(["Proveedor de datos", "Consumidor de datos"]);
   const [tematicaProveedor, setTematicaProveedor] = useState(["Estrés hídrico en cultivos (humedad del suelo, clima, irrigación, etc.)", "Producción y rendimiento de cosechas (históricos de producción, condiciones de cultivo, etc.)", "Presencia y evolución de enfermedades en cultivos (imágenes, reportes fitosanitarios, sensores, etc.)", "Uso de agua subterránea (datos de pozos, caudales extraídos, ubicación de usuarios, etc.)"]);
